@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int countPairs(vector<int>& nums, int target) {
+        sort(nums.begin(),nums.end());
+        int i = 0;
+        int j = nums.size()-1;
+        int sum = 0;
+        int cnt = 0;
+        while(i<=j)
+        {
+           sum = nums[i]+nums[j];
+           if(sum < target)
+           {
+            cnt+=j-i;
+            i++;
+           }
+           else
+           {
+            j--;
+           }
+        }
+        return cnt;
+    }
+};
